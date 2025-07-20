@@ -1,6 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
+{/* import imgs */}
+import ghc_title from "../assets/ghc_title.png"
+import ghc_timeline_left from "../assets/ghc_timeline_left.jpg"
+import ghc_timeline_right from "../assets/ghc_timeline_right.jpg"
+import ghc_carousel_1 from "../assets/ghc_carousel_1.jpg"
+import ghc_carousel_2 from "../assets/ghc_carousel_2.jpg"
+
+const images = [ghc_carousel_1, ghc_carousel_2];
 
 export default function GHC() {
+  const [current, setCurrent] = useState(0);
+  const nextSlide=() =>
+    setCurrent((current + 1) % images.length);
+  
   return (
     <div className="flex-col items-center justify-center bg-[#F7F4F1]">
       <h1 className="text-black text-[36px] font-semibold text-center pt-20 pb-7 px-5 break-words">
@@ -14,7 +26,8 @@ export default function GHC() {
         </p>
       </div>
 
-      {/* insert photo carousel */}
+      {/* photo carousel */}
+
 
       <h1 className="text-black text-[36px] font-semibold text-center pt-20 pb-7 px-5 break-words">
         GHC SPONSORSHIP & APPLICATION PROCESS</h1>
@@ -42,8 +55,11 @@ export default function GHC() {
         <p>For questions, contact csters.rice@gmail.com or the current External President.</p>
       </div>
 
-      {/* insert photo */}
+      <div className="max-w-6xl mx-auto px-5 pt-10">
+        <img src={ghc_title} alt="GHC title image" className="w-full h-auto rounded-xl"></img>
+      </div>
 
+      {/* timeline */}
       <h1 className="text-black text-[36px] font-semibold text-center pt-20 pb-7 px-5 break-words">
         WHY GHC</h1>
       <div className="max-w-7xl mx-auto px-5">
@@ -56,7 +72,7 @@ export default function GHC() {
           </div>
 
           {/* Left side */}
-          <div className="pb-10">
+          <div className="pb-10 relative">
             <h2 className="text-black text-[30px] font-semibold pb-1">Networking & Connections</h2>
             <p className="text-left text-black text-[16px] font-inter"> Community Lounge </p>
             <ul className="list-disc list-outside pl-5 text-left text-black text-[16px] font-inter">
@@ -70,14 +86,16 @@ export default function GHC() {
               </li>
             </ul>
 
-            {/* add picture later */}
+            {/* left pic */}
+            <img src={ghc_timeline_left} alt="Networking & Connections" className="w-full h-auto rounded-xl my-5"></img>
 
           </div>
 
           {/* Right side */}
           <div className="pb-10">
 
-            {/* add picture later */}
+            {/* right pic */}
+            <img src={ghc_timeline_right} alt="Networking & Connections" className="w-full h-auto rounded-xl my-5"></img>
 
             <h2 className="text-black text-[30px] font-semibold pb-1">Insightful Conversations</h2>
             <p className="text-left text-black text-[16px] font-inter"> Braindate </p>
