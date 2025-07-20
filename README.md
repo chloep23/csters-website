@@ -24,6 +24,7 @@ Then open the folder in your IDE (e.g. VS Code).
 ### 2. Install dependencies
 
 Make sure you have Node.js installed (we recommend Node 18+).
+[Note: if you run into the crypto.hash is not a function error, make sure npm is version is 10.9.2 and node is version 23.11.0.]
 
 ```bash
 npm install
