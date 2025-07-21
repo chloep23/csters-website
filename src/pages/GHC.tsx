@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useRef} from "react";
 {/* import imgs */}
 import ghc_title from "../assets/ghc_title.png"
 import ghc_timeline_left from "../assets/ghc_timeline_left.jpg"
@@ -6,15 +6,53 @@ import ghc_timeline_right from "../assets/ghc_timeline_right.jpg"
 import ghc_carousel_1 from "../assets/ghc_carousel_1.jpg"
 import ghc_carousel_2 from "../assets/ghc_carousel_2.jpg"
 
-const images = [ghc_carousel_1, ghc_carousel_2];
+const carousel_imgs = [ghc_carousel_1, ghc_carousel_2];
 
 export default function GHC() {
-  const [current, setCurrent] = useState(0);
-  const nextSlide=() =>
-    setCurrent((current + 1) % images.length);
-  
+  const [current, setCurrent] = useState(1); // Start at first real slide
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const images = [
+    carousel_imgs[carousel_imgs.length - 1],
+    ...carousel_imgs,carousel_imgs[0],
+  ];
+
+  const slideTo = (index: number) => {
+    setIsTransitioning(true);
+    setCurrent(index);
+  };
+  const nextSlide = () => {
+    slideTo(current + 1);
+  };
+  const prevSlide = () => {
+    slideTo(current - 1);
+  };
+  useEffect(() => {
+    const handleTransitionEnd = () => {
+      setIsTransitioning(false);
+      if (current === images.length - 1) {
+        setCurrent(1);
+      }
+      if (current === 0) {
+        setCurrent(images.length - 2);
+      }
+    };
+
+    const slider = sliderRef.current;
+    if (slider) {
+      slider.addEventListener("transitionend", handleTransitionEnd);
+    }
+
+    return () => {
+      if (slider) {
+        slider.removeEventListener("transitionend", handleTransitionEnd);
+      }
+    };
+  }, [current, images.length]);
+
   return (
-    <div className="flex-col items-center justify-center bg-[#F7F4F1]">
+    <div className="flex-col items-center justify-center bg-[#F7F4F1] overflow-hidden">
       <h1 className="text-black text-[36px] font-semibold text-center pt-20 pb-7 px-5 break-words">
         GRACE HOPPER CELEBRATION (GHC)</h1>
       <div className="max-w-7xl mx-auto px-5">
@@ -27,7 +65,36 @@ export default function GHC() {
       </div>
 
       {/* photo carousel */}
+      <div className="relative w-full max-w-7xl mx-auto mt-10 overflow-hidden rounded-xl box-border">
+        <div
+          ref={sliderRef} 
+          className={`flex ${isTransitioning ? "transition-transform duration-500" : "transition-none"}`} 
+          style={{ transform: `translateX(-${current * 100}%)` }}>
+          {images.map((img, index) => (
+            <div
+              key={index}
+              className="w-full flex-shrink-0 relative aspect-[16/9] px-5 rounded-xl overflow-hidden">
+              <img
+                src={img}
+                alt={`GHC Slide ${index}`}
+                className="w-full h-full object-cover rounded-xl"
+              />
+            </div>
+          ))}
+        </div>
 
+        <button
+          onClick={prevSlide}
+          className="absolute left-7 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full">
+          &#10094;
+        </button>
+
+        <button
+          onClick={nextSlide}
+          className="absolute right-7 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full">
+          &#10095;
+        </button>
+      </div>
 
       <h1 className="text-black text-[36px] font-semibold text-center pt-20 pb-7 px-5 break-words">
         GHC SPONSORSHIP & APPLICATION PROCESS</h1>
@@ -60,22 +127,17 @@ export default function GHC() {
       </div>
 
       {/* timeline */}
-      <h1 className="text-black text-[36px] font-semibold text-center pt-20 pb-7 px-5 break-words">
+      <h1 className="text-black text-[36px] font-semibold text-center pt-20 px-5 break-words">
         WHY GHC</h1>
-      <div className="max-w-7xl mx-auto px-5">
-        <div className="grid grid-cols-2 gap-x-30 items-center relative">
+      <div className="relative w-full max-w-7xl mx-auto py-10 px-5">
+        <div className="absolute top-15 left-1/2 transform -translate-x-1/2 h-full w-[1px] bg-black"></div>
 
-          {/* center line */}
-          <div className="absolute top-[26px] bottom-0 left-1/2 w-[1px] bg-black transform -translate-x-1/2">
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-black rounded-full"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-black rounded-full"></div> 
-          </div>
-
-          {/* Left side */}
-          <div className="pb-10 relative">
+        {/* first row */}
+        <div className="mb-5 flex w-full">
+          <div className="w-1/2 pr-8 text-left">
             <h2 className="text-black text-[30px] font-semibold pb-1">Networking & Connections</h2>
-            <p className="text-left text-black text-[16px] font-inter"> Community Lounge </p>
-            <ul className="list-disc list-outside pl-5 text-left text-black text-[16px] font-inter">
+            <p className="text-black text-[16px] font-inter">Community Lounge</p>
+            <ul className="list-disc list-outside pl-5 text-black text-[16px] font-inter">
               <li>Connect with AnitaB.org Local Communities and Systers Groups. Meet leaders, explore events, and 
                 network with fellow technologists. Volunteers will help you join on the spot! </li>
               <li>Virtual Attendees:
@@ -85,31 +147,35 @@ export default function GHC() {
                 </ul>
               </li>
             </ul>
-
-            {/* left pic */}
-            <img src={ghc_timeline_left} alt="Networking & Connections" className="w-full h-auto rounded-xl my-5"></img>
-
           </div>
+          <div className="relative z-10 w-6 h-6 bg-black rounded-full border-4 border-black mt-3"></div>
 
-          {/* Right side */}
-          <div className="pb-10">
-
-            {/* right pic */}
-            <img src={ghc_timeline_right} alt="Networking & Connections" className="w-full h-auto rounded-xl my-5"></img>
-
+          <div className="relative z-10 mx-auto w-1/2 pl-8 pt-3">
+            <img src={ghc_timeline_right} alt="Networking & Connections" className="w-full h-auto rounded-xl"></img>
+          </div>  
+        </div>
+        
+        {/* second row */}
+        <div className="mb-5 flex w-full">
+          <div className="relative z-10 mx-auto w-1/2 pr-8 pt-3">
+            <img src={ghc_timeline_left} alt="Insightful Connections" className="w-full h-auto rounded-xl"></img>
+          </div>
+          <div className="relative z-10 w-6 h-6 bg-black rounded-full border-4 border-black mt-3"></div>
+          <div className="w-1/2 pl-8 text-left">
             <h2 className="text-black text-[30px] font-semibold pb-1">Insightful Conversations</h2>
-            <p className="text-left text-black text-[16px] font-inter"> Braindate </p>
-            <ul className="list-disc list-outside pl-5 text-left text-black text-[16px] font-inter">
+            <p className="text-black text-[16px] font-inter">Braindate</p>
+            <ul className="list-disc list-outside pl-5 text-black text-[16px] font-inter">
               <li>Expand your network through one-on-one or small group discussions, in person or virtually.
                 Share insights, exchange experiences, and connect at the Braindate Lounge. </li>
             </ul>
-            <p className="text-left text-black text-[16px] font-inter">Speaker Meet & Greets</p>
-            <ul className="list-disc list-outside pl-5 text-left text-black text-[16px] font-inter">
+            <p className="text-black text-[16px] font-inter">Speaker Meet & Greets</p>
+            <ul className="list-disc list-outside pl-5 text-black text-[16px] font-inter">
               <li>Meet industry leaders, engage in conversations, and snap a photo with speakers.</li>
             </ul>
           </div>
         </div>
       </div>
+
     </div>
   );
 }
