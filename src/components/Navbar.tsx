@@ -7,8 +7,10 @@ export default function Navbar() {
   const [isAlumniOpen, setIsAlumniOpen] = useState(false);
 
   return (
-    <div className="w-screen bg-mainPurple shadow-md sticky top-0 z-50">
-      <nav className="px-6 py-3 flex flex-wrap items-center w-full">
+      <div 
+        style={{ backgroundColor: "var(--color-mainPurple)" }}
+        className="w-screen bg-mainPurple shadow-md fixed top-0 left-0 z-50">
+        <nav className="px-6 py-3 flex flex-wrap items-center w-full">
         <div className="flex items-center space-x-6 text-sm font-medium text-black">
           <Link to="/" className="text-xl font-semibold italic text-indigo mr-4">CSters</Link>
 

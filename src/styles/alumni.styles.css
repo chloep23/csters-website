@@ -1,0 +1,58 @@
+.alumni-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--color-cream);
+  color: var(--color-black);
+  box-sizing: border-box;
+}
+
+.alumni-directory-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.alumni-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  margin-top: 6rem;
+}
+
+.alumni-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem 1.5rem;
+}
+
+.alumni-card {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.alumni-name {
+  font-weight: 500;
+  margin-bottom: 0.2em;
+}
+
+.alumni-email {
+  font-size: 0.95em;
+  margin-bottom: 0.2em;
+}
+
+.alumni-class {
+  font-size: 0.95em;
+  color: #333;
+}
+
+.alumni-linkedin a {
+  font-size: 0.9em;
+  color: #0072b1;
+  text-decoration: underline;
+}
