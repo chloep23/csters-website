@@ -12,9 +12,9 @@ export default function Contact() {
             {/* External President */}
             <div className="text-center bg-white p-6 rounded-lg shadow-lg w-64">
               <img
-                src="/images/external-president.png"
+                src="/src/assets/Samhita.jpeg"
                 alt="External President"
-                className="w-24 h-24 rounded-full mx-auto mb-4"
+                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
               />
               <h2 className="text-lg font-semibold text-gray-800">External President</h2>
               <p className="text-gray-700">Samhita Vinay</p>
@@ -24,9 +24,9 @@ export default function Contact() {
             {/* Internal President */}
             <div className="text-center bg-white p-6 rounded-lg shadow-lg w-64">
               <img
-                src="/images/internal-president.png"
+                src="/src/assets/ChloePark.JPG"
                 alt="Internal President"
-                className="w-24 h-24 rounded-full mx-auto mb-4"
+                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
               />
               <h2 className="text-lg font-semibold text-gray-800">Internal President</h2>
               <p className="text-gray-700">Chloe Park</p>
@@ -36,9 +36,9 @@ export default function Contact() {
             {/* Secretary */}
             <div className="text-center bg-white p-6 rounded-lg shadow-lg w-64">
               <img
-                src="/images/secretary.png"
+                src="/src/assets/ChloeLim.jpg"
                 alt="Secretary"
-                className="w-24 h-24 rounded-full mx-auto mb-4"
+                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
               />
               <h2 className="text-lg font-semibold text-gray-800">Secretary</h2>
               <p className="text-gray-700">Chloe Lim</p>
@@ -48,7 +48,7 @@ export default function Contact() {
             {/* Treasurer */}
             <div className="text-center bg-white p-6 rounded-lg shadow-lg w-64">
               <img
-                src="/images/treasurer.png"
+                src="/src/assets/treasurer.png"
                 alt="Treasurer"
                 className="w-24 h-24 rounded-full mx-auto mb-4"
               />
@@ -60,7 +60,7 @@ export default function Contact() {
             {/* Grad Student Representative */}
             <div className="text-center bg-white p-6 rounded-lg shadow-lg w-64">
               <img
-                src="/images/grad-rep.png"
+                src="/src/assets/grad-rep.png"
                 alt="Grad Student Representative"
                 className="w-24 h-24 rounded-full mx-auto mb-4"
               />
@@ -72,7 +72,7 @@ export default function Contact() {
             {/* Social Coordinators */}
             <div className="text-center bg-white p-6 rounded-lg shadow-lg w-64">
               <img
-                src="/images/social-coordinator.png"
+                src="/src/assets/social-coordinator.png"
                 alt="Social Coordinator"
                 className="w-24 h-24 rounded-full mx-auto mb-4"
               />
@@ -83,7 +83,7 @@ export default function Contact() {
             </div>
             <div className="text-center bg-white p-6 rounded-lg shadow-lg w-64">
               <img
-                src="/images/social-coordinator.png"
+                src="/src/assets/social-coordinator.png"
                 alt="Social Coordinator"
                 className="w-24 h-24 rounded-full mx-auto mb-4"
               />
@@ -94,7 +94,7 @@ export default function Contact() {
             </div>
             <div className="text-center bg-white p-6 rounded-lg shadow-lg w-64">
               <img
-                src="/images/social-coordinator.png"
+                src="/src/assets/social-coordinator.png"
                 alt="Social Coordinator"
                 className="w-24 h-24 rounded-full mx-auto mb-4"
               />
@@ -112,7 +112,7 @@ export default function Contact() {
             className="block"
           >
             <img
-              src="/src/img/linktree.png"
+              src="/src/assets/linktree.png"
               alt="Linktree"
               className="w-80 h-auto rounded-lg shadow-lg"
             />
@@ -126,9 +126,9 @@ export default function Contact() {
       <footer className="bg-[#d9d9d9] py-6">
         <div className="flex flex-col items-center">
           <div className="flex space-x-4">
-            <img src="/images/sponsor1.png" alt="Sponsor 1" className="h-12" />
-            <img src="/images/sponsor2.png" alt="Sponsor 2" className="h-12" />
-            <img src="/images/sponsor3.png" alt="Sponsor 3" className="h-12" />
+            <img src="/src/assets/sponsor1.png" alt="Sponsor 1" className="h-12" />
+            <img src="/src/assets/sponsor2.png" alt="Sponsor 2" className="h-12" />
+            <img src="/src/assets/sponsor3.png" alt="Sponsor 3" className="h-12" />
           </div>
           <p className="text-sm text-gray-600 mt-4">© 2025 Rice CSTERS</p>
         </div>
