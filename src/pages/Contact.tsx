@@ -30,8 +30,8 @@ export default function Contact() {
               />
               <h2 className="text-lg font-semibold text-gray-800">Internal President</h2>
               <p className="text-gray-700">Chloe Park</p>
-              <p className="text-gray-600">Class of '27</p>
-              <p className="text-gray-600">[Pending]</p>
+              <p className="text-gray-600">Class of '27 | Sid Rich</p>
+              <p className="text-gray-600">csp8@rice.edu</p>
             </div>
             {/* Secretary */}
             <div className="text-center bg-white p-6 rounded-lg shadow-lg w-64">
