@@ -37,10 +37,8 @@ export default function Upcoming() {
           plugins={[dayGridPlugin]}
           initialView="dayGridMonth"
           height="auto"
-          events={[
-            { title: 'Hackathon Kickoff', date: '2025-09-19' },
-            { title: 'Workshop: Design Thinking', date: '2025-09-20' },
-          ]}
+          events={events}
+          eventColor="#8e9ed6"
         />
         </div>
       </div>
@@ -49,18 +47,4 @@ export default function Upcoming() {
   );
 }
 
-{/* Calendar */}
-<div className="calendar-wrapper max-w-5xl mx-auto mt-6">
-<FullCalendar
-  plugins={[dayGridPlugin]}
-  initialView="dayGridMonth"
-  height="auto"
-  events={[
-    { title: "12pm March Mc", date: "2025-03-07" },
-    { title: "5pm COMP 182", date: "2025-03-25" },
-    { title: "7pm March CCC", date: "2025-03-26" },
-    { title: "7pm Alumni Din", date: "2025-03-29" },
-  ]}
-/>
-</div>
 
