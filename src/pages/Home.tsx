@@ -3,44 +3,28 @@ import React from "react";
 export default function Home() {
   return (
     <div className="bg-[#F7F4F1]">
-      {/* Hero Section:
-        - followed dimensions as close as possible to figma mockup
-        - however, adjusted dimensions when necessary for responive text scaling.   
-      */}
+      {/* ------------- Main Header Section ------------- */}
       <section
         className="w-full min-h-[650px] bg-[#e7e4f4] bg-cover bg-center flex flex-col items-center justify-center text-black text-center px-6"
         style={{ backgroundImage: "url('/images/homepage/hero.png')" }}
       >
-
-        {/* main heading — i let it scale on sm/md so it doesn’t feel huge on mobile! */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-wide leading-tight">
           RICE <br /> &lt; CSTERS &gt;
         </h1>
-
-        <p className="mt-4 max-w-xl text-base sm:text-lg md:text-xl text-black/90">
-          To encourage and empower women interested in Computer Science to
-          develop a tight-knit community of current students, alumni,
-          professors, and mentors through professional and social events.
+        <p className="mt-4 max-w-2xl text-base sm:text-lg md:text-xl text-black">
+          To encourage and empower women interested in Computer Science to 
+          develop a tight-knit community of current students, alumni, professors, and 
+          mentors through professional and social events.
         </p>
-        {/* button — blue from figma-ish, rounded pill, subtle hover + shadow */}
-        {/* for now the href goes to events? we dont have a get involved page so wasnt sure what destination was */}
         <a
           href="/events"
-          className="mt-6 bg-[#5B84F1] hover:bg-[#4c74e0] text-white py-2 px-6 rounded-full shadow-md transition"
+          className="mt-6 bg-[#5B84F1] hover:bg-[#4c74e0] font-bold text-white py-2 px-6 rounded-full shadow-md transition"
         >
-          Get Involved &gt;
+          Get Involved <span className="inline-block -scale-x-100 ml-1">く</span>
         </a>
       </section>
 
-      {/* Insta Section */}
-      {/* 
-          - purple stripe background bar (matches figma)
-          - text on left, phone mockup on right
-          - for some reason the phone dimensions were giving me trouble :( 
-            - made it smaller than figma mockup bc otherwise
-            - it was overwhelming page
-          - responsive flex (stacks on mobile, row on desktop)!
-      */}
+      {/* ------------- Insta Section ------------- */}
       <section className="relative z-0 bg-[#F7F4F1] py-16 px-4 overflow-hidden">
         <div className="absolute top-1/2 left-0 w-full h-[200px] sm:h-[281px] bg-[#DFDFF2] -translate-y-1/2 -z-10"></div>
         <div className="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
@@ -58,8 +42,6 @@ export default function Home() {
               for live updates!
             </p>
           </div>
-
-          {/* phone image — scales up with breakpoints, nudged right with margin */}
           <div className="w-full md:w-[55%] flex justify-center z-10 mt-12">
             <img
               src="/images/homepage/instagram.png"
@@ -70,17 +52,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Cloud + Grid Section 
-          - kept cloud + grid in same wrapper w/ aspect ratio so they scale together
-          - grid sits left-ish but with margin so it’s not hugging edge
-          - cards given fixed aspect ratio ~221x130 (figma ratio)
-          - grid width uses clamp so it flexes but never gets too wide
-      
-      */}
+      {/* ------------- Cloud Section ------------- */}
       <section className="relative w-full bg-[#F7F4F1] overflow-hidden">
-        {/* Wrapper with aspect ratio to keep cloud proportional */}
         <div className="relative w-full aspect-[1200/550]">
-          {/* Cloud background SVG */}
           <svg
             viewBox="0 0 1440 795"
             fill="none"
@@ -108,19 +82,15 @@ export default function Home() {
             />
           </svg>
 
-          {/* Button Grid, positioned inside same aspect-ratio box */}
-          {/* i had to shorten the button names or else the box sizes were not uniform :(
-              if this is a problem, i can try to fix it. */}
+          {/* ------------- Button Grid ------------- */}
           <div className="absolute inset-0 flex items-center justify-start">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 
-                            [width:clamp(320px,56vw,640px)] ml-6 sm:ml-16">
-              
-              {/* Top-left: Join Our Listserv (lavender) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-7 max-w-1/3 ml-16 sm:ml-32">
+              {/* ------------- Join Our Listserv ------------- */}
               <a
                 href="https://mailman.rice.edu/mailman/listinfo/csters-l"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-[#E9E7F5] rounded-2xl shadow-md p-6 flex justify-between items-center hover:shadow-lg transition aspect-[221/130]"
+                className="group bg-[#E9E7F5] h-32 w-full rounded-2xl shadow-md p-6 flex justify-between items-center hover:scale-[1.07] hover:shadow-lg transition"
               >
                 <span className="text-black font-medium text-[20px] sm:text-[24px]">
                   Join Our Listserv
@@ -128,29 +98,29 @@ export default function Home() {
                 <img
                   src="/images/homepage/arrow.png"   
                   alt="Arrow icon"
-                  className="w-23 h-18 transition group-hover:brightness-0 group-hover:invert"
+                  className="w-23 h-18 transition"
                 />
               </a>
 
-              {/* Top-right: Learn More About Us (yellow) */}
+              {/* ------------- More About Us ------------- */}
               <a
                 href="/about"
-                className="group bg-[#FAF3EB] rounded-2xl shadow-md p-6 flex justify-between items-center hover:shadow-lg transition aspect-[221/130]"
+                className="group bg-[#FAF3EB] h-32 w-full rounded-2xl shadow-md p-6 flex justify-between items-center hover:scale-[1.07] hover:shadow-lg transition"
               >
                 <span className="text-black font-medium text-[20px] sm:text-[23px]">
-                  About Us
+                  More About Us
                 </span>
                 <img
                   src="/images/homepage/arrow.png"   
                   alt="Arrow icon"
-                  className="w-23 h-18 transition group-hover:brightness-0 group-hover:invert"
+                  className="w-23 h-18 transition"
                 />
               </a>
 
-              {/* Bottom-left: Collaborate With Us (yellow) */}
+              {/* ------------- Collaborate With Us ------------- */}
               <a
                 href="/contact"
-                className="group bg-[#FAF3EB] rounded-2xl shadow-md p-6 flex justify-between items-center hover:shadow-lg transition aspect-[221/130]"
+                className="group bg-[#FAF3EB] h-32 w-full rounded-2xl shadow-md p-6 flex justify-between items-center hover:scale-[1.07] hover:shadow-lg transition"
               >
                 <span className="text-black font-medium text-[20px] sm:text-[24px]">
                   Collaborate With Us
@@ -158,14 +128,14 @@ export default function Home() {
                 <img
                   src="/images/homepage/arrow.png"   
                   alt="Arrow icon"
-                  className="w-23 h-18 transition group-hover:brightness-0 group-hover:invert"
+                  className="w-23 h-18 transition"
                 />
               </a>
 
-              {/* Bottom-right: View Our Upcoming Events (lavender) */}
+              {/* ------------- Upcoming Events ------------- */}
               <a
                 href="/events"
-                className="group bg-[#E9E7F5] rounded-2xl shadow-md p-6 flex justify-between items-center hover:shadow-lg transition aspect-[221/130]"
+                className="group bg-[#E9E7F5] h-32 w-full rounded-2xl shadow-md p-6 flex justify-between items-center hover:scale-[1.07] hover:shadow-lg transition"
               >
                 <span className="text-black font-medium text-[20px] sm:text-[24px]">
                   Upcoming Events
@@ -173,7 +143,7 @@ export default function Home() {
                 <img
                   src="/images/homepage/arrow.png"   
                   alt="Arrow icon"
-                  className="w-23 h-18 transition group-hover:brightness-0 group-hover:invert"
+                  className="w-23 h-18 transition"
                 />
               </a>
             </div>
