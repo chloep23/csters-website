@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
-@theme {
+:root {
   --color-mainPurple: #DFDFF2;
   --color-indigo: #8D99C6;
-}
+  --color-cream: #F7F4F1;
+  --color-black: #000000;
 
-:root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -23,8 +23,7 @@
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
