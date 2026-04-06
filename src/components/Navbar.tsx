@@ -22,7 +22,9 @@ export default function Navbar() {
             <span className="cursor-pointer hover:text-indigo">Events ▾</span>
             {isEventsOpen && (
               <div className="absolute bg-white shadow-md rounded px-6 py-2 top-full left-0 z-10">
-                <Link to="/events" className="block hover:text-indigo">Events</Link>
+                <Link to="/events/upcoming" className="block hover:text-indigo">Upcoming</Link>
+                <hr className="my-1 border-gray-200" />
+                <Link to="/events/past" className="block hover:text-indigo">Past</Link>
               </div>
             )}
           </div>

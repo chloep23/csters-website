@@ -5,8 +5,15 @@
   --color-indigo: #8D99C6;
 }
 
+* {
+  font-family: 'Inter', sans-serif !important;
+}
+
+h1, h2, h3 {
+  font-family: 'Hammersmith One', sans-serif !important;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -20,11 +27,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
+  font-family: 'Hammersmith One', sans-serif;
   min-height: 100vh;
 }
