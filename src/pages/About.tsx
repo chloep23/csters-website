@@ -18,7 +18,7 @@ const OFFICERS: Officer[] = [
     class: "Class of '26",
     college: "Wiess",
     email: "sv57@rice.edu",
-    image: "src/assets/Samhita.png",
+    image: "src/assets/team/Samhita.png",
   },
   {
     id: "chloep",
@@ -27,7 +27,7 @@ const OFFICERS: Officer[] = [
     class: "Class of '27",
     college: "Sid Richardson",
     email: "csp8@rice.edu",
-    image: "src/assets/ChloePark.JPG",
+    image: "src/assets/team/ChloePark.JPG",
   },
   {
     id: "chloel",
@@ -36,7 +36,7 @@ const OFFICERS: Officer[] = [
     class: "Class of '26",
     college: "Will Rice",
     email: "chl6@rice.edu",
-    image: "src/assets/ChloeLim.jpg",
+    image: "src/assets/team/ChloeLim.jpg",
   },
   {
     id: "varshini",
@@ -45,7 +45,7 @@ const OFFICERS: Officer[] = [
     class: "Class of '28",
     college: "Wiess",
     email: "vl37@rice.edu",
-    image: "src/assets/Varshini.JPG",
+    image: "src/assets/team/Varshini.JPG",
   },
 ];
 
@@ -57,7 +57,7 @@ const SOCIALS: Officer[] = [
     class: "Class of '28",
     college: "Will Rice",
     email: "rj63@rice.edu",
-    image: "src/assets/Richa.jpeg",
+    image: "src/assets/team/Richa.jpeg",
   },
   {
     id: "stella",
@@ -66,7 +66,7 @@ const SOCIALS: Officer[] = [
     class: "Class of '28",
     college: "Lovett",
     email: "sc300@rice.edu",
-    image: "src/assets/Stella.JPG",
+    image: "src/assets/team/Stella.JPG",
   },
   {
     id: "carolyn",
@@ -75,7 +75,7 @@ const SOCIALS: Officer[] = [
     class: "Class of '28",
     college: "McMurtry",
     email: "cl236@rice.edu",
-    image: "src/assets/Carolyn.jpg",
+    image: "src/assets/team/Carolyn.jpg",
   },
 ];
 

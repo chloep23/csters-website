@@ -40,6 +40,8 @@ export default function Navbar() {
             {isAlumniOpen && (
               <div className="absolute bg-white shadow-md rounded px-6 py-2 top-full left-0 z-10">
                 <Link to="/alumni" className="block hover:text-indigo">Alumni</Link>
+                <hr className="my-1 border-gray-200" />
+                <Link to="/alumni/directory" className="block hover:text-indigo">Directory</Link>
               </div>
             )}
           </div>

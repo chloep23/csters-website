@@ -28,7 +28,7 @@ export default function Upcoming() {
   }, []);
 
   return (
-    <div className="min-h-screen py-12 px-4" style={{ backgroundColor: "#f0ece3" }}>
+    <div className="min-h-screen pt-20 pb-12 px-4" style={{ backgroundColor: "#f0ece3" }}>
       <div className="max-w-5xl mx-auto">
         <h1
           className="text-center font-bold mb-8 text-black"
@@ -62,7 +62,7 @@ export default function Upcoming() {
         <p className="text-center mt-6 text-gray-700 text-base">
           Stay updated with CSters'{" "}
           < a
-            href="https://your-listserv-link-here.com"
+            href="https://linktr.ee/csters"
             target="_blank"
             rel="noopener noreferrer"
             className="underline font-medium"

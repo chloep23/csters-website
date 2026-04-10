@@ -2,76 +2,76 @@ import React, { useState } from "react";
 
 const events = [
     {
-        image: "/src/assets/aprilccc.jpg",
+        image: "/src/assets/events/aprilccc.jpg",
     },
     {
-        image: "/src/assets/marchccc.jpg",
+        image: "/src/assets/events/marchccc.jpg",
     },
     {
-        image: "/src/assets/febccc.jpg",
+        image: "/src/assets/events/febccc.jpg",
     },
     {
-        image: "/src/assets/novccc.jpg",
+        image: "/src/assets/events/novccc.jpg",
     },
     {
-        image: "/src/assets/octccc.jpg",
+        image: "/src/assets/events/octccc.jpg",
     },
     {
-        image: "/src/assets/sepccc.jpg",
+        image: "/src/assets/events/sepccc.jpg",
     },
     {
-        image: "/src/assets/april24ccc.jpg",
+        image: "/src/assets/events/april24ccc.jpg",
     },
     {
-        image: "/src/assets/march24ccc.jpg",
+        image: "/src/assets/events/march24ccc.jpg",
     },
     {
-        image: "/src/assets/decstudy.jpg",
+        image: "/src/assets/events/decstudy.jpg",
     },
     {
-        image: "/src/assets/decevent.jpg",
+        image: "/src/assets/events/decevent.jpg",
     },
     {
-        image: "/src/assets/novevent.jpg",
+        image: "/src/assets/events/novevent.jpg",
     },
     {
-        image: "/src/assets/microsoft.jpg",
+        image: "/src/assets/events/microsoft.jpg",
     },
     {
-        image: "/src/assets/octevent.jpg",
+        image: "/src/assets/events/octevent.jpg",
     },
     {
-        image: "/src/assets/sepevent.jpg",
+        image: "/src/assets/events/sepevent.jpg",
     },
     {
-        image: "/src/assets/roblox.jpg",
+        image: "/src/assets/events/roblox.jpg",
     },
     {
-        image: "/src/assets/gsevent.jpg",
+        image: "/src/assets/events/gsevent.jpg",
     }, 
     {
-        image: "/src/assets/aprillunch.jpg",
+        image: "/src/assets/events/aprillunch.jpg",
     },
     {
-        image: "/src/assets/marchlunch.jpg",
+        image: "/src/assets/events/marchlunch.jpg",
     },
     {
-        image: "/src/assets/feblunch.jpg",
+        image: "/src/assets/events/feblunch.jpg",
     },
     {
-        image: "/src/assets/janlunch.jpg",
+        image: "/src/assets/events/janlunch.jpg",
     },
     {
-        image: "/src/assets/novlunch.jpg",
+        image: "/src/assets/events/novlunch.jpg",
     },
     {
-        image: "/src/assets/octlunch.jpg",
+        image: "/src/assets/events/octlunch.jpg",
     },
     {
-        image: "/src/assets/seplunch.jpg",
+        image: "/src/assets/events/seplunch.jpg",
     },
     {
-        image: "/src/assets/april24lunch.jpg",
+        image: "/src/assets/events/april24lunch.jpg",
     },
   ];
 
@@ -92,7 +92,7 @@ export default function Past() {
   const prevPage = () => setPage((prev) => (prev - 1 + totalPages) % totalPages);
 
   return (
-    <section style={{ backgroundColor: "#f0ece3" }} className="flex flex-col items-center justify-center min-h-screen">
+    <section style={{ backgroundColor: "#f0ece3" }} className="pt-20 pb-12 px-4 flex flex-col items-center min-h-screen">
       <h2 className="text-3xl font-bold text-black text-center mb-8">
         {galleryTitles[page]}
       </h2>
