@@ -81,15 +81,15 @@ const SOCIALS: Officer[] = [
 
 const OfficerCard: React.FC<{ officer: Officer }> = ({ officer }) => (
   <div className="flex flex-col items-center">
-    <div className="w-60 h-60 rounded-xl bg-gray-100 flex items-center justify-center text-6xl mb-4 shadow-sm mt-4">
+    <div className="w-32 h-32 sm:w-52 sm:h-52 md:w-60 md:h-60 rounded-xl bg-gray-100 flex items-center justify-center mb-4 shadow-sm mt-4">
       <img 
         src={officer.image} 
         alt={officer.name}
         className="w-full h-full object-cover rounded-2xl"
       />
     </div>
-    <h3 className="text-black text-lg font-semibold text-center">{officer.name}</h3>
-    <p className="text-gray-600 text-sm text-center">{officer.class} | {officer.college}</p>
+    <h3 className="text-black text-base sm:text-lg font-semibold text-center">{officer.name}</h3>
+    <p className="text-gray-600 text-xs sm:text-sm text-center">{officer.class} | {officer.college}</p>
     <p className="text-gray-500 text-xs text-center mt-1 break-all">{officer.email}</p>
   </div>
 );
@@ -131,17 +131,15 @@ export default function About() {
         </div>
       </div>
 
-      {/* Officers Section */}
-      <div className="max-w-6xl mx-auto px-5 py-16">
-        <h2 className="text-black text-4xl md:text-5xl font-bold text-center mb-4">
+      <div className="max-w-6xl mx-auto px-5 py-8 md:py-16">
+        <h2 className="text-black text-3xl md:text-5xl font-bold text-center mb-4">
           CURRENT OFFICERS
         </h2>
         
-        {/* Officers Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-12 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8 md:mt-12 mb-10 md:mb-16">
           {OFFICERS.map((officer) => (
             <div key={officer.id}>
-              <p className="text-black text-base font-semibold text-center mt-3">
+              <p className="text-black text-sm sm:text-base font-semibold text-center mt-3">
                 {officer.position}
               </p>
               <OfficerCard officer={officer} />
@@ -149,10 +147,10 @@ export default function About() {
           ))}
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-3xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
           {SOCIALS.map((social) => (
             <div key={social.id}>
-               <p className="text-black text-base font-semibold text-center mt-3">
+              <p className="text-black text-sm sm:text-base font-semibold text-center mt-3">
                 {social.position}
               </p>
               <OfficerCard officer={social} />

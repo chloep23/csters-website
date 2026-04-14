@@ -27,11 +27,20 @@ h1, h2, h3 {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  padding: 0;
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   font-family: 'Hammersmith One', sans-serif;
   min-height: 100vh;
+}
+
+.fc-toolbar-title {
+  text-align: center !important;
+}
+
+.fc .fc-toolbar {
+  justify-content: space-between !important;
 }

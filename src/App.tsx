@@ -13,20 +13,22 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/about" element={<About />}/>
-        <Route path="/events/upcoming" element={<Events />}/>
-        <Route path="/events/past" element={<EventsPast />}/>
-        <Route path="/GHC" element={<GHC />}/>
-        <Route path="/alumni" element={<Alumni />}/>
-        <Route path="/alumni/directory" element={<AlumniDirectory />}/>
-        <Route path="/contact" element={<Contact />}/>
-      </Routes>    
-      <Footer />
-    </Router>
+    <div className="overflow-x-hidden">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/about" element={<About />}/>
+          <Route path="/events/upcoming" element={<Events />}/>
+          <Route path="/events/past" element={<EventsPast />}/>
+          <Route path="/GHC" element={<GHC />}/>
+          <Route path="/alumni" element={<Alumni />}/>
+          <Route path="/alumni/directory" element={<AlumniDirectory />}/>
+          <Route path="/contact" element={<Contact />}/>
+        </Routes>    
+        <Footer />
+      </Router>
+    </div>
   )
 }
 

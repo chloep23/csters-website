@@ -19,7 +19,7 @@ export default function Upcoming() {
         const event = new ICAL.Event(vevent);
         return {
           title: event.summary,
-          start: event.startDate.toJSDate().toISOString(), // ✅ full datetime
+          start: event.startDate.toJSDate().toISOString(),
         };
       });
       setEvents(parsedEvents);
@@ -28,17 +28,17 @@ export default function Upcoming() {
   }, []);
 
   return (
-    <div className="min-h-screen pt-20 pb-12 px-4" style={{ backgroundColor: "#f0ece3" }}>
+    <div className="min-h-screen pt-20 pb-12 px-3 sm:px-4" style={{ backgroundColor: "#f0ece3" }}>
       <div className="max-w-5xl mx-auto">
         <h1
           className="text-center font-bold mb-8 text-black"
-          style={{ fontSize: "2rem", letterSpacing: "0.18em", textTransform: "uppercase" }}
+          style={{ fontSize: "clamp(1.2rem, 4vw, 2rem)", letterSpacing: "0.18em", textTransform: "uppercase" }}
         >
           Upcoming Events
         </h1>
 
-        <div className="rounded-2xl shadow-lg p-4 md:p-6" style={{ backgroundColor: "#8e9ed6" }}>
-          <div className="bg-white rounded-xl p-4 text-black">
+        <div className="rounded-2xl shadow-lg p-2 sm:p-4 md:p-6" style={{ backgroundColor: "#8e9ed6" }}>
+          <div className="bg-white rounded-xl p-2 sm:p-4 text-black">
             <FullCalendar
               plugins={[dayGridPlugin]}
               initialView="dayGridMonth"
@@ -55,13 +55,14 @@ export default function Upcoming() {
                 center: "title",
                 right: "next"
               }}
+              titleFormat={{ year: "numeric", month: "long" }}
             />
           </div>
         </div>
 
         <p className="text-center mt-6 text-gray-700 text-base">
           Stay updated with CSters'{" "}
-          < a
+          <a
             href="https://linktr.ee/csters"
             target="_blank"
             rel="noopener noreferrer"
@@ -70,7 +71,6 @@ export default function Upcoming() {
             LISTSERV
           </a>
         </p>
-
       </div>
     </div>
   );
