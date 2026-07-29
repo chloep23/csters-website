@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function Alumni() {
   const [formLoaded, setFormLoaded] = useState(false);
@@ -29,7 +29,7 @@ export default function Alumni() {
           </p>
 
           <img
-            src="src/assets/alumni_image.png"
+            src="/images/alumni_image.png"
             alt="Alumni Dinner"
             className="rounded-xl object-cover w-full max-w-lg mt-2"
           />

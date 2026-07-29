@@ -36,11 +36,3 @@ html, body {
   font-family: 'Hammersmith One', sans-serif;
   min-height: 100vh;
 }
-
-.fc-toolbar-title {
-  text-align: center !important;
-}
-
-.fc .fc-toolbar {
-  justify-content: space-between !important;
-}

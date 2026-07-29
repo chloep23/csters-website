@@ -1,31 +1,34 @@
-import React, { useEffect, useState } from "react";
-import ICAL from "ical.js";
-import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid";
+import { useState } from "react";
+
+// Live embed of the CSters Events Calendar. This is a window onto the calendar
+// itself rather than a copy of it, so adding an event in Google Calendar is all
+// that's needed to update this page - no redeploy, no .ics parsing on our side.
+// Recurring and all-day events render correctly because Google handles them.
+//
+// The calendar must stay shared publicly for this to load. To change what shows
+// here, edit the calendar - not this file.
+const CALENDAR_ID = "ov37doivoa8ohnil4k5upd7stc@group.calendar.google.com";
+
+// ctz pins times to Houston so they don't shift for out-of-state visitors; the
+// show* flags strip Google's own chrome, since the page supplies its heading.
+const EMBED_URL =
+  "https://calendar.google.com/calendar/embed?" +
+  new URLSearchParams({
+    src: CALENDAR_ID,
+    ctz: "America/Chicago",
+    mode: "MONTH",
+    showTitle: "0",
+    showNav: "1",
+    showDate: "1",
+    showTabs: "0",
+    showCalendars: "0",
+    showPrint: "0",
+    showTz: "0",
+    bgcolor: "#FFFFFF",
+  });
 
 export default function Upcoming() {
-  const [events, setEvents] = useState<{ title: string; start: string }[]>([]);
-
-   useEffect(() => {
-    const icalUrl = "https://corsproxy.io/?https://calendar.google.com/calendar/ical/ov37doivoa8ohnil4k5upd7stc%40group.calendar.google.com/public/basic.ics";
-
-   fetch(icalUrl)
-    .then((res) => res.text())
-    .then((data) => {
-      const jcal = ICAL.parse(data);
-      const comp = new ICAL.Component(jcal);
-      const vevents = comp.getAllSubcomponents("vevent");
-      const parsedEvents = vevents.map((vevent) => {
-        const event = new ICAL.Event(vevent);
-        return {
-          title: event.summary,
-          start: event.startDate.toJSDate().toISOString(),
-        };
-      });
-      setEvents(parsedEvents);
-    })
-    .catch((err) => console.error("Failed to load events:", err));
-  }, []);
+  const [loaded, setLoaded] = useState(false);
 
   return (
     <div className="min-h-screen pt-20 pb-12 px-3 sm:px-4" style={{ backgroundColor: "#f0ece3" }}>
@@ -38,24 +41,18 @@ export default function Upcoming() {
         </h1>
 
         <div className="rounded-2xl shadow-lg p-2 sm:p-4 md:p-6" style={{ backgroundColor: "#8e9ed6" }}>
-          <div className="bg-white rounded-xl p-2 sm:p-4 text-black">
-            <FullCalendar
-              plugins={[dayGridPlugin]}
-              initialView="dayGridMonth"
-              height="auto"
-              events={events}
-              eventColor="#8e9ed6"
-              eventDisplay="list-item"
-              eventTimeFormat={{
-                hour: "numeric",
-                meridiem: "short"
-              }}
-              headerToolbar={{
-                left: "prev",
-                center: "title",
-                right: "next"
-              }}
-              titleFormat={{ year: "numeric", month: "long" }}
+          <div className="relative bg-white rounded-xl overflow-hidden h-[520px] sm:h-[600px] lg:h-[680px]">
+            {!loaded && (
+              <div className="absolute inset-0 flex items-center justify-center bg-white">
+                <div className="w-10 h-10 border-4 border-[#8e9ed6] border-t-transparent rounded-full animate-spin" />
+              </div>
+            )}
+            <iframe
+              src={EMBED_URL}
+              title="CSters Events Calendar"
+              className="w-full h-full border-0"
+              onLoad={() => setLoaded(true)}
+              style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.3s ease" }}
             />
           </div>
         </div>
