@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div className="overflow-x-hidden">
+    <Router basename="/csters-website"></Router>
       <Router>
         <Navbar />
         <Routes>
