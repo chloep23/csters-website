@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -12,16 +12,16 @@ export default function Home() {
           RICE <br /> &lt; CSTERS &gt;
         </h1>
         <p className="mt-4 max-w-2xl text-base sm:text-lg md:text-xl text-black">
-          To encourage and empower women interested in Computer Science to 
+          Our mission is to encourage and empower women interested in Computer Science to 
           develop a tight-knit community of current students, alumni, professors, and 
           mentors through professional and social events.
         </p>
-        <a
-          href="/events"
+        <Link
+          to="/events/upcoming"
           className="mt-6 bg-[#5B84F1] hover:bg-[#4c74e0] font-bold text-white py-2 px-6 rounded-full shadow-md transition"
         >
           Get Involved <span className="inline-block -scale-x-100 ml-1">く</span>
-        </a>
+        </Link>
       </section>
 
       {/* ------------- Insta Section ------------- */}
@@ -53,100 +53,102 @@ export default function Home() {
       </section>
 
       {/* ------------- Cloud Section ------------- */}
+      {/* The blobs are a background layer; the grid below sets the section
+          height, so the tiles can never overflow and get clipped. */}
       <section className="relative w-full bg-[#F7F4F1] overflow-hidden">
-        <div className="relative w-full aspect-[1200/550]">
-          <svg
-            viewBox="0 0 1440 795"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="absolute inset-0 w-full h-full"
-          >
-            <ellipse cx="45.5" cy="493.5" rx="430.5" ry="493.5" fill="#8D99C6" />
-            <ellipse cx="1156.5" cy="674.5" rx="298.5" ry="344.5" fill="#8D99C6" />
-            <ellipse cx="479" cy="233" rx="241" ry="233" fill="#8D99C6" />
-            <ellipse
-              cx="685.019"
-              cy="570.427"
-              rx="348.521"
-              ry="249.891"
-              transform="rotate(-49.6914 685.019 570.427)"
-              fill="#8D99C6"
-            />
-            <ellipse
-              cx="1550.49"
-              cy="705.152"
-              rx="490.5"
-              ry="435.5"
-              transform="rotate(143.617 1550.49 705.152)"
-              fill="#8D99C6"
-            />
-          </svg>
+        <svg
+          viewBox="0 0 1440 795"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid slice"
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full"
+        >
+          <ellipse cx="45.5" cy="493.5" rx="430.5" ry="493.5" fill="#8D99C6" />
+          <ellipse cx="1156.5" cy="674.5" rx="298.5" ry="344.5" fill="#8D99C6" />
+          <ellipse cx="479" cy="233" rx="241" ry="233" fill="#8D99C6" />
+          <ellipse
+            cx="685.019"
+            cy="570.427"
+            rx="348.521"
+            ry="249.891"
+            transform="rotate(-49.6914 685.019 570.427)"
+            fill="#8D99C6"
+          />
+          <ellipse
+            cx="1550.49"
+            cy="705.152"
+            rx="490.5"
+            ry="435.5"
+            transform="rotate(143.617 1550.49 705.152)"
+            fill="#8D99C6"
+          />
+        </svg>
 
-          {/* ------------- Button Grid ------------- */}
-          <div className="absolute inset-0 flex items-center justify-start">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-7 max-w-1/3 ml-16 sm:ml-32">
-              {/* ------------- Join Our Listserv ------------- */}
-              <a
-                href="https://mailman.rice.edu/mailman/listinfo/csters-l"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-[#E9E7F5] h-32 w-full rounded-2xl shadow-md p-6 flex justify-between items-center hover:scale-[1.07] hover:shadow-lg transition"
-              >
-                <span className="text-black font-medium text-[20px] sm:text-[24px]">
-                  Join Our Listserv
-                </span>
-                <img
-                  src="/images/homepage/arrow.png"   
-                  alt="Arrow icon"
-                  className="w-23 h-18 transition"
-                />
-              </a>
+        {/* ------------- Button Grid ------------- */}
+        <div className="relative px-6 py-16 sm:px-12 sm:py-20 lg:px-32 lg:py-28">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-7 max-w-md sm:max-w-2xl">
+            {/* ------------- Join Our Listserv ------------- */}
+            <a
+              href="https://mailman.rice.edu/mailman/listinfo/csters-l"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-[#E9E7F5] min-h-32 w-full rounded-2xl shadow-md p-5 sm:p-6 flex justify-between items-center gap-3 hover:scale-[1.07] hover:shadow-lg transition"
+            >
+              <span className="text-black font-medium text-lg sm:text-[22px]">
+                Join Our Listserv
+              </span>
+              <img
+                src="/images/homepage/arrow.png"
+                alt=""
+                className="w-16 sm:w-20 h-auto shrink-0 transition"
+              />
+            </a>
 
-              {/* ------------- More About Us ------------- */}
-              <a
-                href="/about"
-                className="group bg-[#FAF3EB] h-32 w-full rounded-2xl shadow-md p-6 flex justify-between items-center hover:scale-[1.07] hover:shadow-lg transition"
-              >
-                <span className="text-black font-medium text-[20px] sm:text-[23px]">
-                  More About Us
-                </span>
-                <img
-                  src="/images/homepage/arrow.png"   
-                  alt="Arrow icon"
-                  className="w-23 h-18 transition"
-                />
-              </a>
+            {/* ------------- More About Us ------------- */}
+            <Link
+              to="/about"
+              className="group bg-[#FAF3EB] min-h-32 w-full rounded-2xl shadow-md p-5 sm:p-6 flex justify-between items-center gap-3 hover:scale-[1.07] hover:shadow-lg transition"
+            >
+              <span className="text-black font-medium text-lg sm:text-[22px]">
+                More About Us
+              </span>
+              <img
+                src="/images/homepage/arrow.png"
+                alt=""
+                className="w-16 sm:w-20 h-auto shrink-0 transition"
+              />
+            </Link>
 
-              {/* ------------- Collaborate With Us ------------- */}
-              <a
-                href="/contact"
-                className="group bg-[#FAF3EB] h-32 w-full rounded-2xl shadow-md p-6 flex justify-between items-center hover:scale-[1.07] hover:shadow-lg transition"
-              >
-                <span className="text-black font-medium text-[20px] sm:text-[24px]">
-                  Collaborate With Us
-                </span>
-                <img
-                  src="/images/homepage/arrow.png"   
-                  alt="Arrow icon"
-                  className="w-23 h-18 transition"
-                />
-              </a>
+            {/* ------------- Collaborate With Us ------------- */}
+            <Link
+              to="/contact"
+              className="group bg-[#FAF3EB] min-h-32 w-full rounded-2xl shadow-md p-5 sm:p-6 flex justify-between items-center gap-3 hover:scale-[1.07] hover:shadow-lg transition"
+            >
+              <span className="text-black font-medium text-lg sm:text-[22px]">
+                Collaborate With Us
+              </span>
+              <img
+                src="/images/homepage/arrow.png"
+                alt=""
+                className="w-16 sm:w-20 h-auto shrink-0 transition"
+              />
+            </Link>
 
-              {/* ------------- Upcoming Events ------------- */}
-              <a
-                href="/events"
-                className="group bg-[#E9E7F5] h-32 w-full rounded-2xl shadow-md p-6 flex justify-between items-center hover:scale-[1.07] hover:shadow-lg transition"
-              >
-                <span className="text-black font-medium text-[20px] sm:text-[24px]">
-                  Upcoming Events
-                </span>
-                <img
-                  src="/images/homepage/arrow.png"   
-                  alt="Arrow icon"
-                  className="w-23 h-18 transition"
-                />
-              </a>
-            </div>
+            {/* ------------- Upcoming Events ------------- */}
+            <Link
+              to="/events/upcoming"
+              className="group bg-[#E9E7F5] min-h-32 w-full rounded-2xl shadow-md p-5 sm:p-6 flex justify-between items-center gap-3 hover:scale-[1.07] hover:shadow-lg transition"
+            >
+              <span className="text-black font-medium text-lg sm:text-[22px]">
+                Upcoming Events
+              </span>
+              <img
+                src="/images/homepage/arrow.png"
+                alt=""
+                className="w-16 sm:w-20 h-auto shrink-0 transition"
+              />
+            </Link>
           </div>
         </div>
       </section>
