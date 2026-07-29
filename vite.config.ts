@@ -26,6 +26,7 @@ function spaFallback(): Plugin {
 }
 
 export default defineConfig({
+  base: '/csters-website/',
   plugins: [
     react(),
     tailwindcss(),
